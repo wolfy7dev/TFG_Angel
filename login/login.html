@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <form action="login.php" method="post">
+      <h1>Bienvenido!</h1>
+      <input type="text" name="user" required placeholder="usuario" /><br />
+      <input type="text" name="email" required placeholder="email" /><br />
+      <input
+        type="password"
+        name="pass"
+        required
+        placeholder="Contraseña"
+      /><br />
+      <button type="submit">Iniciar Session</button>
+      <section>
+        <p>Aún no te has registrado? <a href="registro.html">Registrarse</a><br></p>
+        <br />
+        <p>Para volver a la WKI <a href="../index.php">Wiki</a><br></p>
+        <br />
+        <p>
+          Para volver a la Tienda
+          <a href="../tienda/other/tienda.php">Tienda</a>
+        </p>
+      </section>
+    </form>
+  </body>
+</html>
