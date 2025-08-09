@@ -1,0 +1,164 @@
+html, body {
+    height: auto; 
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
+    justify-content: center; 
+    align-items: center; 
+    background: #f7f7f7; 
+}
+/*imagen de fondo*/
+.bg_img {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+main {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #9e9e9e;
+
+}
+p , .box{
+    font-family: Arial, sans-serif;
+}
+#contenedorChat {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border: 1px solid #000;
+    z-index: 1000;
+    display: none;
+}
+
+#content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+/*boton de eleccion idioma*/
+#language-selector {
+    width: 200px;
+    height: 40px;
+    /* Estilo de la fuente */
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    
+    /* Colores */
+    color: #333;
+    background-color: #f4f4f9;
+    
+    /* Bordes */
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    
+    /* Espaciado interno */
+    padding: 5px 10px;
+    
+    /* Sombra */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    /* Eliminación de bordes en algunos navegadores */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    /* Fondo del icono de la flecha */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M5.5%207L10%2011.5%2014.5%207h-9z%22%20fill%3D%22%23333%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+#language-selector option {
+    /* Opcional: estilizar las opciones */
+    padding: 10px;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Estilo de contenedor para ocultar el ícono de flecha en algunos navegadores */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.select-wrapper:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Cpath%20d%3D%22M1%203l4%204%204-4z%22%20fill%3D%22%23333%22/%3E%3C/svg%3E') no-repeat center center;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+
+/*caja comentarios*/
+
+#comment-section {
+    max-width: 600px;
+    width: 700px;
+    max-height: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+#comment-form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#comment-text {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.comentarios div {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+.chat-bubble {
+    max-width: 100%;
+    margin: 10px;
+    padding: 10px;
+    background-color: #2b1d039f;
+    border-radius: 10px;
+    position: relative;
+}
+
+.user-info {
+    font-weight: bold;
+}
+
+.message {
+    margin-top: 5px;
+}
+
+.time {
+    font-size: 12px;
+    color: #ffffff;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+

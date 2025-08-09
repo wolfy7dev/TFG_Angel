@@ -1,0 +1,69 @@
+<!-- verificacion con el php -->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylePer.css" />
+    <title>Detalles del Personaje</title>
+  </head>
+
+  <body>
+    <!-- Imágenes de banderas para seleccionar el idioma -->
+    <div id="language-selector">
+      <img src="img/bandera-en.png" alt="English" data-language="en" />
+      <img src="img/bandera-fr.webp" alt="French" data-language="fr" />
+    </div>
+
+    <div class="contenedor-centralizado">
+      <h1 class="titulo-registro">Detalles de Localizaciones</h1>
+      <div id="personaje-det">
+        <!-- Aquí se cargarán los detalles del personaje -->
+      </div>
+    </div>
+    <script src="js/img.js"></script>
+    <script>
+      const loadLocationDetails = (characterId, language) => {
+        fetch(
+          `https://api.api-onepiece.com/v2/locates/${language}/${characterId}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const personajeDetInfo = document.getElementById("personaje-det");
+            personajeDetInfo.innerHTML = `               
+              <h2>Nombre: ${data.name}</h2>
+              <p>Roman: ${data.roman_name}</p>
+              <p>Mar: ${data.sea_name}</p>
+              <p>Region: ${data.region_name}</p>
+              <p>Afiliacion: ${data.affiliation_name}</p>
+              <a href="localizaciones.php" class="button">back</a>
+            `;
+          })
+          .catch((error) =>
+            console.error("Error al cargar los detalles:", error)
+          );
+      };
+
+      // Obtener el ID del personaje de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const locationId = urlParams.get("id");
+
+      // Agregar un evento de clic a las imágenes de banderas
+      const flagImages = document.querySelectorAll("#language-selector img");
+      flagImages.forEach((img) => {
+        img.addEventListener("click", () => {
+          // Obtener el idioma seleccionado del atributo data-language
+          const selectedLanguage = img.getAttribute("data-language");
+
+          // Volver a cargar los detalles usando el nuevo idioma
+          loadLocationDetails(locationId, selectedLanguage);
+        });
+      });
+
+      // Cargar los detalles con el idioma inicial
+      const initialLanguage = "en"; // Establece un idioma inicial predeterminado
+      loadLocationDetails(locationId, initialLanguage);
+    </script>
+  </body>
+</html>

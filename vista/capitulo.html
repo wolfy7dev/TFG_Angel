@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylePer.css" />
+    <title>Detalles de los Capitulos</title>
+  </head>
+
+  <body>
+    <!-- Utiliza imágenes de banderas para seleccionar el idioma -->
+    <div id="language-selector">
+      <img src="img/bandera-en.png" alt="English" data-language="en" />
+      <img src="img/bandera-fr.webp" alt="French" data-language="fr" />
+    </div>
+
+    <div class="contenedor-centralizado">
+      <h1 class="titulo-registro">Detalles del Capitulo</h1>
+      <div id="personaje-det">
+        <!-- Aquí se cargarán los detalles -->
+      </div>
+    </div>
+    <script src="js/img.js"></script>
+    <script>
+      // Función para cargar los detalles
+      const loadChapterDetails = (chapterId, language) => {
+        fetch(
+          `https://api.api-onepiece.com/v2/chapters/${language}/${chapterId}`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const chapterDetInfo = document.getElementById("personaje-det");
+            chapterDetInfo.innerHTML = `
+                        <h2>Titulo: ${data.title}</h2>
+                        <p>Descripcion: ${data.description}</p>
+                        <p>Saga: ${data.tome.title}</p>
+                        <p>Fecha de emision: ${data.tome.tome_japan_date_publish}</p>
+                        <p>Saga descripcion: ${data.tome.tome_number}</p>
+                        <a href="peliculas.php" class="button">back</a>
+                    `;
+          })
+          .catch((error) =>
+            console.error("Error al cargar los detalles:", error)
+          );
+      };
+
+      // Obtener el ID de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const chapterId = urlParams.get("id");
+
+      // Agregar un evento de clic a las imágenes de banderas
+      const flagImages = document.querySelectorAll("#language-selector img");
+      flagImages.forEach((img) => {
+        img.addEventListener("click", () => {
+          // Obtener el idioma seleccionado del atributo data-language
+          const selectedLanguage = img.getAttribute("data-language");
+
+          // Volver a cargar los detalles del usando el nuevo idioma
+          loadChapterDetails(chapterId, selectedLanguage);
+        });
+      });
+
+      // Cargar los detalles con el idioma inicial
+      const initialLanguage = "en"; // Establece un idioma inicial predeterminado
+      loadChapterDetails(chapterId, initialLanguage);
+    </script>
+  </body>
+</html>

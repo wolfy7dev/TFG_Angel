@@ -1,0 +1,73 @@
+body {
+    background-image: url(''); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+/*No mostrar el scroll*/
+body::-webkit-scrollbar {
+    display: none;
+}
+.contenedor-centralizado {
+    margin-top: 10%;
+    text-align: center; 
+}
+
+.titulo-registro {
+    font-family: Arial, sans-serif;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    padding: 20px;
+    width: 400px;
+    margin: 0 auto; 
+}
+
+#personaje-det{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    padding: 20px;
+    width: 400px;
+    text-align: left;
+    margin: 20px auto; 
+}
+
+a.button {
+    margin-left: 35%;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+a.button:hover {
+    background-color: #0056b3;
+}
+
+a.button:focus {
+    outline: none;
+  
+}
+
+a.button:active {
+    background-color: #003366;
+}
+
+#language-selector {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px; /* Espacio entre las banderas */
+}
+
+#language-selector img {
+    width: 30px; /* Tamaño deseado para las imágenes de las banderas */
+    height: auto;
+    cursor: pointer; /* Cambia el cursor al pasar sobre las imágenes */
+}
