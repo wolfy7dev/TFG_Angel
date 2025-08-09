@@ -1,0 +1,27 @@
+/* CSS para el fondo y el contenedor principal */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../img/fondoonepiece.jpg'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden; /* Evita el scroll en la página principal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#principal {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Aumenta el ancho del contenedor */
+    max-width: 1300px; /* Aumenta el ancho máximo del contenedor */
+    height: 95vh; /* Aumenta la altura del contenedor */
+    overflow-y: auto; /* Scroll interno */
+}
+
+
+
